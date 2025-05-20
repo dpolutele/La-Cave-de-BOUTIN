@@ -15,21 +15,30 @@ public class Panier {
         produits.add(produit);
     }
 
-    public void afficherPanier() {
-        System.out.println("🛒 Contenu du panier :");
-        if (produits.isEmpty()) {
-            System.out.println("Le panier est vide.");
-        } else {
-            double total = 0;
-            for (ProduitAlcool p : produits) {
-                System.out.println("- " + p.getNom() + " : " + p.getPrix() + " XPF");
-                total += p.getPrix();
-            }
-            System.out.println("💰 Total : " + total + " XPF");
+    public double getTotal() {
+        double total = 0;
+        for (ProduitAlcool produit : produits) {
+            total += produit.getPrix();
         }
+        return total;
+    }
+
+    public void afficherPanier() {
+        System.out.println(this.toString());
     }
 
     public void viderPanier() {
         produits.clear();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (ProduitAlcool produit : produits) {
+            sb.append("- ").append(produit.getNom()).append(" : ")
+              .append(produit.getPrix()).append(" F CFP\n");
+        }
+        sb.append("\nTotal : ").append(getTotal()).append(" F CFP");
+        return sb.toString();
     }
 }

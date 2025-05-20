@@ -11,9 +11,16 @@ public class Commande {
         this.panier = panier;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public Panier getPanier() {
+        return panier;
+    }
+
     public void afficherFacture() {
-        System.out.println("\n🧾 Facture de " + client.getPrenom() + " " + client.getNom() + " :");
+        System.out.println("Facture pour " + client.getNom());
         panier.afficherPanier();
-        System.out.println("✅ Merci pour votre achat !");
     }
 }

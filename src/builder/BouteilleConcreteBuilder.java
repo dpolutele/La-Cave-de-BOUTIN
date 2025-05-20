@@ -3,15 +3,16 @@ package builder;
 import model.Bouteille;
 
 public class BouteilleConcreteBuilder implements BouteilleBuilder {
+
     private Bouteille bouteille;
 
     public BouteilleConcreteBuilder() {
-        this.reset();
+        reset();
     }
 
     @Override
     public void reset() {
-        this.bouteille = new Bouteille();
+        bouteille = new Bouteille();
     }
 
     @Override
@@ -25,12 +26,22 @@ public class BouteilleConcreteBuilder implements BouteilleBuilder {
     }
 
     @Override
-    public void setContenance(String contenance) {
+    public void setContenance(int contenance) {
         bouteille.setContenance(contenance);
     }
 
     @Override
-    public Bouteille getResult() {
-        return this.bouteille;
+    public void setPrix(double prix) {
+        bouteille.setPrix(prix);
+    }
+
+    @Override
+    public void setOrigine(String origine) {
+        bouteille.setType(origine);
+    }
+
+    @Override
+    public Bouteille getBouteille() {
+        return bouteille;
     }
 }

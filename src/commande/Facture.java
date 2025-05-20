@@ -11,10 +11,15 @@ public class Facture {
         this.panier = panier;
     }
 
-    public void imprimerFacture() {
-        System.out.println("\n🧾 FACTURE");
-        System.out.println("Client : " + client.getPrenom() + " " + client.getNom());
-        panier.afficherPanier();
-        System.out.println("📌 Facture générée avec succès.");
+    public String afficherFacture() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Client : ").append(client.getNom()).append("\n");
+        sb.append("Carte : **** **** **** ").append(
+            client.getNumeroCarte().length() >= 4 ? client.getNumeroCarte().substring(client.getNumeroCarte().length() - 4) : "XXXX"
+        ).append("\n\n");
+
+        sb.append("Détails du panier :\n").append(panier.toString()).append("\n");
+        sb.append("");
+        return sb.toString();
     }
 }

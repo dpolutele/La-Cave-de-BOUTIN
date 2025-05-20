@@ -3,42 +3,52 @@ package composite;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Categorie implements ElementCave {
-    private String nom;
+public class Categorie extends ElementCave {
     private List<ElementCave> elements;
 
     public Categorie(String nom) {
-        this.nom = nom;
+        super(nom);
         this.elements = new ArrayList<>();
     }
 
-    public void ajouterElement(ElementCave e) {
-        elements.add(e);
+    public void ajouterElement(ElementCave element) {
+        elements.add(element);
     }
 
-    @Override
-    public void afficher() {
-        System.out.println("📦 Catégorie : " + nom);
-        for (ElementCave e : elements) {
-            e.afficher();
-        }
-        System.out.println("💵 Prix total : " + getPrix() + " XPF");
-    }
-
-    @Override
-    public double getPrix() {
-        double total = 0;
-        for (ElementCave e : elements) {
-            total += e.getPrix();
-        }
-        return total;
+    public void retirerElement(ElementCave element) {
+        elements.remove(element);
     }
 
     public List<ElementCave> getElements() {
         return elements;
     }
 
-    public String getNom() {
-        return nom;
+    @Override
+    public double getPrix() {
+        double total = 0;
+        for (ElementCave element : elements) {
+            total += element.getPrix();
+        }
+        return total;
+    }
+
+    @Override
+    public void afficher(String indent) {
+        System.out.println(indent + "+ " + nom);
+        for (ElementCave element : elements) {
+            element.afficher(indent + "  ");
+        }
+    }
+
+    public List<ElementCave> listerProduits() {
+        List<ElementCave> liste = new ArrayList<>();
+        for (ElementCave element : elements) {
+            if (element instanceof Categorie) {
+                liste.addAll(((Categorie) element).listerProduits());
+            } else {
+                liste.add(element);
+            }
+        }
+        return liste;
     }
 }

@@ -1,25 +1,31 @@
 package composite;
 
-public class ProduitAlcool implements ElementCave {
-    private String nom;
-    private double prix;
+import model.Bouteille;
 
-    public ProduitAlcool(String nom, double prix) {
-        this.nom = nom;
-        this.prix = prix;
+public class ProduitAlcool extends ElementCave {
+    private Bouteille bouteille;
+
+    public ProduitAlcool(String nom, Bouteille bouteille) {
+        super(nom);
+        this.bouteille = bouteille;
     }
 
-    @Override
-    public void afficher() {
-        System.out.println("- " + nom + " : " + prix + " XPF");
+    public Bouteille getBouteille() {
+        return bouteille;
     }
 
     @Override
     public double getPrix() {
-        return prix;
+        return bouteille.getPrix();
     }
 
-    public String getNom() {
-        return nom;
+    @Override
+    public void afficher(String indent) {
+        System.out.println(indent + "- " + bouteille.toString());
+    }
+
+    @Override
+    public String toString() {
+        return bouteille.toString();
     }
 }

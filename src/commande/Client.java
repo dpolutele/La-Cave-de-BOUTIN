@@ -2,18 +2,18 @@ package commande;
 
 public class Client {
     private String nom;
-    private String prenom;
+    private String numeroCarte;
 
-    public Client(String nom, String prenom) {
+    public Client(String nom, String numeroCarte) {
         this.nom = nom;
-        this.prenom = prenom;
+        this.numeroCarte = numeroCarte;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public String getNumeroCarte() {
+        return numeroCarte;
     }
 }

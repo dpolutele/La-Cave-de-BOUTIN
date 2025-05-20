@@ -25,7 +25,8 @@ public class Main {
 
             switch (choix) {
                 case "1":
-                    cave.getCave().afficher();
+                cave.getCave().afficher("");
+
                     break;
                 case "2":
                     System.out.print("Nom exact du produit à ajouter : ");

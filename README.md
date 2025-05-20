@@ -22,28 +22,25 @@ Aucune base de données n’est utilisée – les données sont simulées en mé
 
 Chaque membre du groupe a implémenté un **design pattern** dans le projet :
 
-- 🏗️ **Builder** – Création de bouteilles personnalisées ou de coffrets cadeaux  
 - 🧩 **Composite** – Organisation hiérarchique des produits  
-- 🧪 **Abstract Factory** – Instanciation des différentes familles d’alcool (**bière, vin, whisky, vodka**)
+- 🧪 **Abstract Factory** – Instanciation des différentes familles d’alcool (**bière, vin, whisky, vodka**)  
+- 🎯 **Strategy** – (en cours d’implémentation)
 
 ---
 
 ## 📁 Structure du projet
 src/
-├── builder/ → Construction d’objets complexes (bouteilles, coffrets)
-├── composite/ → Structure hiérarchique des produits (catégories, produits)
-├── factory/ → Fabrication des familles d’alcool (bière, vin, whisky, vodka)
-├── commande/ → Gestion client, panier, commande
-├── strategy/ → (non utilisé dans cette version)
-├── model/ → Constantes et données partagées
+├── composite/ → Structure hiérarchique des produits (catégories, produits)  
+├── factory/ → Fabrication des familles d’alcool (bière, vin, whisky, vodka)  
+├── commande/ → Gestion client, panier, commande  
+├── strategy/ → Stratégies métier (en cours)  
+├── model/ → Constantes et données partagées  
 ├── main/ → Point d’entrée de l’application
-
 
 ---
 
 ## Équipe
 
-- **POLUTELE Dylan** – Builder  
+- **POLUTELE Dylan** – Strategy  
 - **GALOIS Mathieu** – Composite  
 - **BOUTIN Aymeric** – Abstract Factory  
-

@@ -6,6 +6,8 @@ public interface BouteilleBuilder {
     void reset();
     void setNom(String nom);
     void setAnnee(int annee);
-    void setContenance(String contenance);
-    Bouteille getResult();
+    void setContenance(int contenance);
+    void setPrix(double prix);
+    void setOrigine(String origine);
+    Bouteille getBouteille();
 }

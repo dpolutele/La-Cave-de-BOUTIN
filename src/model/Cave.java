@@ -1,6 +1,6 @@
 package model;
 
-import composite.*;
+import composite.Categorie;
 import factory.*;
 
 public class Cave {
@@ -41,7 +41,6 @@ public class Cave {
         vodkas.ajouterElement(vodkaFactory.creerProduit("Absolut", 3000));
         vodkas.ajouterElement(vodkaFactory.creerProduit("Belvedere", 4800));
 
-        // Ajout dans la racine
         racine.ajouterElement(bieres);
         racine.ajouterElement(vins);
         racine.ajouterElement(whiskys);
