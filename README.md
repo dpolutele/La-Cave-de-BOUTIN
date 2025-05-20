@@ -3,20 +3,28 @@
 Projet de Génie Logiciel en Java POO – L3 MIAGE  
 UNC
 
+---
+
 ## 🎯 Objectif
 
-Ce projet simule la gestion de la **caisse d'une cave à alcool**.  
-Il permet de gérer les commandes des clients et de générer automatiquement les **factures** associées, sans base de données.
+Ce projet simule la gestion d’une **cave à alcool** via une interface **console interactive**.  
+L’utilisateur peut :
+- Naviguer dans les catégories de produits (bière, vin, whisky, vodka)
+- Sélectionner des articles (à l’unité ou en pack)
+- Passer en caisse avec un **paiement fictif**
+- Recevoir une **facture générée dynamiquement**
+
+Aucune base de données n’est utilisée – les données sont simulées en mémoire.
 
 ---
 
 ## 🛠️ Design Patterns utilisés
 
-Chaque membre du groupe applique un design pattern pour la conception de ce projet :
+Chaque membre du groupe a implémenté un **design pattern** dans le projet :
 
-- 🏗️ **Builder** – pour la création de bouteilles ou coffrets personnalisés 
-- 🧩 **Composite** – pour structurer les produits et catégories d’alcool 
-- 🧪 **Abstract Factory** – pour instancier différents types d’alcool (vin, bière, whisky) 
+- 🏗️ **Builder** – Création de bouteilles personnalisées ou de coffrets cadeaux  
+- 🧩 **Composite** – Organisation hiérarchique des produits  
+- 🧪 **Abstract Factory** – Instanciation des différentes familles d’alcool (**bière, vin, whisky, vodka**)
 
 ---
 
@@ -24,17 +32,18 @@ Chaque membre du groupe applique un design pattern pour la conception de ce proj
 src/
 ├── builder/ → Construction d’objets complexes (bouteilles, coffrets)
 ├── composite/ → Structure hiérarchique des produits (catégories, produits)
-├── factory/ → Fabrication des familles d’alcool
-├── commande/ → Données relatives aux clients et aux commandes
-├── strategy/ → (non utilisé pour ce projet)
+├── factory/ → Fabrication des familles d’alcool (bière, vin, whisky, vodka)
+├── commande/ → Gestion client, panier, commande
+├── strategy/ → (non utilisé dans cette version)
 ├── model/ → Constantes et données partagées
 ├── main/ → Point d’entrée de l’application
 
 
 ---
 
-## 👨‍👩‍👦 Équipe
+## Équipe
 
-- **POLUTELE Dylan** – Builder
-- **GALOIS Mathieu** – Composite
-- **BOUTIN Aymeric** – Abstract Factory
+- **POLUTELE Dylan** – Builder  
+- **GALOIS Mathieu** – Composite  
+- **BOUTIN Aymeric** – Abstract Factory  
+
