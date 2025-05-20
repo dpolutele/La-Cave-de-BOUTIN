@@ -15,30 +15,21 @@ public class Panier {
         produits.add(produit);
     }
 
-    public double getTotal() {
-        double total = 0;
-        for (ProduitAlcool produit : produits) {
-            total += produit.getPrix();
-        }
-        return total;
-    }
-
-    public void afficherPanier() {
-        System.out.println(this.toString());
-    }
-
     public void viderPanier() {
         produits.clear();
+    }
+
+    public double calculerTotal() {
+        return produits.stream().mapToDouble(ProduitAlcool::getPrix).sum();
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (ProduitAlcool produit : produits) {
-            sb.append("- ").append(produit.getNom()).append(" : ")
-              .append(produit.getPrix()).append(" F CFP\n");
+            sb.append(produit.getNom()).append(" : ").append(produit.getPrix()).append(" XPF\n");
         }
-        sb.append("\nTotal : ").append(getTotal()).append(" F CFP");
+        sb.append("Total : ").append(calculerTotal()).append(" XPF");
         return sb.toString();
     }
 }

@@ -19,7 +19,6 @@ public class Facture {
         ).append("\n\n");
 
         sb.append("Détails du panier :\n").append(panier.toString()).append("\n");
-        sb.append("");
         return sb.toString();
     }
 }

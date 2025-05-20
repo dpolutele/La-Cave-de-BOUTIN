@@ -7,7 +7,7 @@ UNC
 
 ## 🎯 Objectif
 
-Ce projet simule la gestion d’une **cave à alcool** via une interface **console interactive**.  
+Ce projet simule la gestion d’une **cave à alcool** via une interface **console interactive ou graphique**.  
 L’utilisateur peut :
 - Naviguer dans les catégories de produits (bière, vin, whisky, vodka)
 - Sélectionner des articles (à l’unité ou en pack)
@@ -29,17 +29,19 @@ Chaque membre du groupe a implémenté un **design pattern** dans le projet :
 ---
 
 ## 📁 Structure du projet
+
 src/
-├── composite/ → Structure hiérarchique des produits (catégories, produits)  
-├── factory/ → Fabrication des familles d’alcool (bière, vin, whisky, vodka)  
-├── commande/ → Gestion client, panier, commande  
-├── strategy/ → Stratégies métier (en cours)  
-├── model/ → Constantes et données partagées  
+├── commande/ → Gestion du client, du panier et des commandes
+├── composite/ → Structure hiérarchique des produits (catégories, produits)
+├── factory/ → Fabrication des familles d’alcool (bière, vin, whisky, vodka)
 ├── main/ → Point d’entrée de l’application
+├── model/ → Constantes, cave pré-remplie et objets partagés
+├── strategy/ → Stratégies métier (en cours ou à venir)
+
 
 ---
 
-## Équipe
+## 👥 Équipe
 
 - **POLUTELE Dylan** – Strategy  
 - **GALOIS Mathieu** – Composite  

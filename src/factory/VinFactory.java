@@ -1,19 +1,12 @@
 package factory;
 
-import builder.BouteilleBuilder;
-import builder.BouteilleDirector;
-import builder.BouteilleConcreteBuilder;
 import composite.ProduitAlcool;
-import model.Bouteille;
 
-public class VinFactory extends AlcoolFactory {
+public class VinFactory implements AlcoolFactory {
 
     @Override
     public ProduitAlcool creerProduit(String nom, double prix) {
-        BouteilleBuilder builder = new BouteilleConcreteBuilder();
-        BouteilleDirector director = new BouteilleDirector(builder);
-        director.construireVin(nom, prix);
-        Bouteille bouteille = builder.getBouteille();
-        return new ProduitAlcool(nom, bouteille);
+        // Vins = 75 cl, année 2021, origine "France"
+        return new ProduitAlcool(nom , prix);
     }
 }

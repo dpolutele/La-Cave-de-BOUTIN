@@ -25,7 +25,9 @@ public class GraphiqueCave {
         while (continuer) {
             // 1. Choix de la catégorie
             List<ElementCave> categories = cave.getCave().getElements();
-            String[] nomsCategories = categories.stream().map(ElementCave::getNom).toArray(String[]::new);
+            String[] nomsCategories = categories.stream()
+                                               .map(ElementCave::getNom)
+                                               .toArray(String[]::new);
 
             String categorieChoisie = (String) JOptionPane.showInputDialog(null,
                     "Choisissez une catégorie :", "Catégories",
@@ -63,7 +65,9 @@ public class GraphiqueCave {
                     break;
                 }
 
-                String[] nomsProduits = produitsFiltres.stream().map(ElementCave::getNom).toArray(String[]::new);
+                String[] nomsProduits = produitsFiltres.stream()
+                                                      .map(ElementCave::getNom)
+                                                      .toArray(String[]::new);
 
                 String produitChoisi = (String) JOptionPane.showInputDialog(null,
                         "Choisissez un produit à ajouter au panier :", "Produits",

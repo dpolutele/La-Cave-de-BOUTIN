@@ -5,22 +5,15 @@ import model.Panier;
 public class Commande {
     private Client client;
     private Panier panier;
+    private Facture facture;
 
     public Commande(Client client, Panier panier) {
         this.client = client;
         this.panier = panier;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public Panier getPanier() {
-        return panier;
+        this.facture = new Facture(client, panier);
     }
 
     public void afficherFacture() {
-        System.out.println("Facture pour " + client.getNom());
-        panier.afficherPanier();
+        facture.afficherFacture();
     }
 }
