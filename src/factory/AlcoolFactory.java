@@ -3,16 +3,16 @@ package factory;
 import composite.ProduitAlcool;
 
 /**
- * Interface représentant une usine de fabrication de produits alcoolisés.
- * Permet de créer un produit avec un nom et un prix.
+ * Usine pour fabriquer des produits alcoolisés.
+ * Elle crée un produit avec un nom et un prix.
  */
 public interface AlcoolFactory {
 
     /**
-     * Crée un produit alcoolisé.
-     * @param nom Nom du produit
+     * Crée un nouveau produit alcoolisé.
+     * @param nom Nom du produit (ex : Whisky)
      * @param prix Prix du produit
-     * @return un nouvel objet ProduitAlcool
+     * @return un produit alcoolisé prêt à être utilisé
      */
     ProduitAlcool creerProduit(String nom, double prix);
 }

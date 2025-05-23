@@ -5,19 +5,19 @@ import java.util.List;
 
 /**
  * Représente une catégorie dans la cave (ex : Bières, Vins...).
- * Une catégorie peut contenir des sous-catégories ou des produits.
+ * Une catégorie peut contenir d'autres catégories ou des produits.
  */
 public class Categorie implements ElementCave {
 
     /** Nom de la catégorie. */
     private String nom;
 
-    /** Liste des éléments contenus dans cette catégorie. */
+    /** Liste des éléments dans cette catégorie (sous-catégories ou produits). */
     private List<ElementCave> elements;
 
     /**
-     * Constructeur avec le nom de la catégorie.
-     * @param nom Le nom de la catégorie
+     * Crée une catégorie avec un nom donné.
+     * @param nom Nom de la catégorie
      */
     public Categorie(String nom) {
         this.nom = nom;
@@ -25,7 +25,7 @@ public class Categorie implements ElementCave {
     }
 
     /**
-     * Ajoute un élément (produit ou sous-catégorie) à la catégorie.
+     * Ajoute un élément (produit ou sous-catégorie) dans cette catégorie.
      * @param element Élément à ajouter
      */
     public void ajouterElement(ElementCave element) {
@@ -33,7 +33,7 @@ public class Categorie implements ElementCave {
     }
 
     /**
-     * Retourne la liste des éléments contenus.
+     * Donne la liste des éléments contenus dans cette catégorie.
      * @return liste d'éléments
      */
     public List<ElementCave> getElements() {
@@ -42,7 +42,7 @@ public class Categorie implements ElementCave {
 
     /**
      * Retourne le nom de la catégorie.
-     * @return nom
+     * @return nom de la catégorie
      */
     @Override
     public String getNom() {
@@ -50,9 +50,10 @@ public class Categorie implements ElementCave {
     }
 
     /**
-     * Affiche récursivement la catégorie et son contenu.
-     * @param prefixe Préfixe pour indentation
-     * @return représentation textuelle
+     * Affiche la catégorie et tout ce qu’elle contient,
+     * avec une indentation pour mieux voir la hiérarchie.
+     * @param prefixe Texte ajouté devant chaque ligne pour l’indentation
+     * @return texte représentant la catégorie et ses contenus
      */
     @Override
     public String afficher(String prefixe) {

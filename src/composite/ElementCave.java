@@ -1,20 +1,20 @@
 package composite;
 
 /**
- * Interface commune aux éléments de la cave (catégories ou produits).
+ * Interface pour tous les éléments de la cave, que ce soit une catégorie ou un produit.
  */
 public interface ElementCave {
 
     /**
-     * Retourne le nom de l'élément.
-     * @return nom de l'élément
+     * Donne le nom de l’élément (catégorie ou produit).
+     * @return nom de l’élément
      */
     String getNom();
 
     /**
-     * Retourne une représentation textuelle de l'élément avec indentation.
-     * @param prefixe Le préfixe utilisé pour l'affichage en arborescence
-     * @return chaîne de caractères affichable
+     * Donne une version texte de l’élément avec un début de ligne (pour afficher en arbre).
+     * @param prefixe Texte ajouté au début pour indenter
+     * @return texte à afficher
      */
     String afficher(String prefixe);
 }

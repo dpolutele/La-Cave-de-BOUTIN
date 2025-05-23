@@ -2,12 +2,12 @@ package commande;
 
 import model.Panier;
 import strategy.FraisStrategy;
-import strategy.TaxesStrategy;
 import strategy.RemiseStrategy;
+import strategy.TaxesStrategy;
 
 /**
- * Classe représentant une commande passée par un client.
- * Elle contient les stratégies de calcul de frais, taxes et remises.
+ * Gère une commande avec un client, un panier, et les règles
+ * pour calculer frais, taxes et remises.
  */
 public class Commande {
 
@@ -50,16 +50,17 @@ public class Commande {
     }
 
     /**
-     * Calcule le total final de la commande en appliquant les stratégies liés aux frais, taxes et remises.*/
+     * Calcule le prix final avec frais, taxes et remises.
+     */
     public double calculerTotalFinal() {
         if (fraisStrategy == null || taxesStrategy == null || remiseStrategy == null) {
-            throw new IllegalStateException("Les stratégies doivent être définies avant de calculer le total final.");
+            throw new IllegalStateException("Stratégies non définies.");
         }
         return panier.calculerTotalFinal(fraisStrategy, taxesStrategy, remiseStrategy);
     }
 
     /**
-     * Affiche la facture.
+     * Affiche la facture de la commande.
      */
     public void afficherFacture() {
         facture.afficherFacture();

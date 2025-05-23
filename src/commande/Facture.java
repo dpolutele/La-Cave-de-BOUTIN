@@ -3,18 +3,18 @@ package commande;
 import model.Panier;
 
 /**
- * Cette class représente une facture associée à un client et à son panier.
+ * Représente une facture pour un client et son panier.
  */
 public class Facture {
 
-    /** Client concerné par la facture. */
+    /** Le client qui a passé la commande. */
     private Client client;
 
-    /** Panier du client. */
+    /** Le panier contenant les articles achetés. */
     private Panier panier;
 
     /**
-     * Constructeur de la facture.
+     * Crée une facture pour un client et son panier.
      */
     public Facture(Client client, Panier panier) {
         this.client = client;
@@ -22,8 +22,7 @@ public class Facture {
     }
 
     /**
-     * Génère une chaîne de caractères représentant la facture.
-     * @return le texte de la facture
+     * Retourne le texte de la facture avec les détails.
      */
     public String afficherFacture() {
         StringBuilder sb = new StringBuilder();

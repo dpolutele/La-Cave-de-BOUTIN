@@ -3,12 +3,13 @@ package commande;
 import java.util.Scanner;
 
 /**
- * Classe utilitaire permettant de simuler un paiement fictif.
+ * Simule un paiement par carte bancaire en demandant des infos à l'utilisateur.
  */
 public class Paiement {
 
     /**
-     * Simule un paiement par carte bancaire via saisie console.
+     * Demande les infos de carte bancaire et affiche un message de paiement accepté.
+     * C'est une simulation, sans vérification réelle.
      */
     public static void effectuerPaiement() {
         Scanner scanner = new Scanner(System.in);
@@ -26,7 +27,6 @@ public class Paiement {
         System.out.print("Cryptogramme visuel (CVV) : ");
         String cvv = scanner.nextLine();
 
-        // Simulation sans vérification réelle
         System.out.println("✅ Paiement accepté !\n");
     }
 }

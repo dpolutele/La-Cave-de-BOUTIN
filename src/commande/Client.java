@@ -1,20 +1,24 @@
 package commande;
 
 /**
- * Représente un client avec un nom et un numéro de carte bancaire fictif.
+ * Représente un client qui passe une commande.
+ * 
+ * Un client est défini par son nom et un numéro de carte bancaire fictif,
+ * qui servent à identifier le client et simuler le paiement.
  */
 public class Client {
 
-    /** Nom du client. */
+    /** Le nom complet du client. */
     private String nom;
 
-    /** Numéro de carte bancaire du client. */
+    /** Le numéro fictif de la carte bancaire du client. */
     private String numeroCarte;
 
     /**
-     * Constructeur du client.
-     * @param nom Nom du client
-     * @param numeroCarte Numéro de carte bancaire
+     * Crée un nouveau client avec son nom et son numéro de carte.
+     * 
+     * @param nom Le nom complet du client.
+     * @param numeroCarte Le numéro fictif de la carte bancaire.
      */
     public Client(String nom, String numeroCarte) {
         this.nom = nom;
@@ -23,15 +27,17 @@ public class Client {
 
     /**
      * Retourne le nom du client.
-     * @return nom
+     * 
+     * @return Le nom complet du client.
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * Retourne le numéro de carte du client.
-     * @return numéro de carte
+     * Retourne le numéro de la carte bancaire du client.
+     * 
+     * @return Le numéro fictif de la carte bancaire.
      */
     public String getNumeroCarte() {
         return numeroCarte;
