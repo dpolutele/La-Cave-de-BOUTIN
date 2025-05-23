@@ -3,6 +3,9 @@ package model;
 import composite.ProduitAlcool;
 import java.util.ArrayList;
 import java.util.List;
+import strategy.FraisStrategy;
+import strategy.TaxesStrategy;
+import strategy.RemiseStrategy;
 
 /**
  * Représente le panier d’un client contenant des produits alcoolisés.
@@ -55,4 +58,17 @@ public class Panier {
         sb.append("Total : ").append(calculerTotal()).append(" XPF");
         return sb.toString();
     }
+    public double calculerTotalFinal(FraisStrategy fraisStrategy, TaxesStrategy taxesStrategy, RemiseStrategy remiseStrategy) {
+        double total = calculerTotal();
+        double frais = fraisStrategy != null ? fraisStrategy.calculerFrais(this) : 0;
+        double taxes = taxesStrategy != null ? taxesStrategy.calculerTaxes(this) : 0;
+        double remise = remiseStrategy != null ? remiseStrategy.calculerRemise(this) : 0;
+        return total + frais + taxes - remise;
+    }
 }
+
+
+
+
+
+

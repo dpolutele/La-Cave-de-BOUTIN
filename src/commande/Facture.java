@@ -3,7 +3,7 @@ package commande;
 import model.Panier;
 
 /**
- * Représente une facture associée à un client et à son panier.
+ * Cette class représente une facture associée à un client et à son panier.
  */
 public class Facture {
 
@@ -15,8 +15,6 @@ public class Facture {
 
     /**
      * Constructeur de la facture.
-     * @param client Le client
-     * @param panier Le panier
      */
     public Facture(Client client, Panier panier) {
         this.client = client;

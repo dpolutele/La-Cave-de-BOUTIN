@@ -36,7 +36,7 @@ src/
 ├── factory/ → Fabrication des familles d’alcool (bière, vin, whisky, vodka)
 ├── main/ → Point d’entrée de l’application
 ├── model/ → Constantes, cave pré-remplie et objets partagés
-├── strategy/ → Stratégies métier (en cours ou à venir)
+├── strategy/ → Stratégies liés aux frais, taxes et remises
 
 
 ---

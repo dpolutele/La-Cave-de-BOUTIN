@@ -11,18 +11,12 @@ import java.util.stream.Collectors;
 import javax.swing.*;
 import model.Cave;
 import model.Panier;
+import strategy.FraisDePort;
+import strategy.RemisePourcentage;
+import strategy.TaxeTauxFixe;
 
-/**
- * Point d'entrée de l'application graphique.
- * Permet à l'utilisateur de naviguer dans la cave, ajouter des produits au panier
- * et générer une facture fictive à la fin de la commande.
- */
 public class GraphiqueCave {
 
-    /**
-     * Méthode principale qui lance l'application graphique.
-     * @param args non utilisé
-     */
     public static void main(String[] args) {
         Cave cave = new Cave();
         Panier panier = new Panier();
@@ -32,7 +26,6 @@ public class GraphiqueCave {
         boolean continuer = true;
 
         while (continuer) {
-            // Choix de la catégorie
             List<ElementCave> categories = cave.getCave().getElements();
             String[] nomsCategories = categories.stream()
                                                .map(ElementCave::getNom)
@@ -42,11 +35,8 @@ public class GraphiqueCave {
                     "Choisissez une catégorie :", "Catégories",
                     JOptionPane.PLAIN_MESSAGE, null, nomsCategories, nomsCategories[0]);
 
-            if (categorieChoisie == null) {
-                break; // Annuler = quitter
-            }
+            if (categorieChoisie == null) break;
 
-            // Recherche de la catégorie choisie
             Categorie categorie = null;
             for (ElementCave c : categories) {
                 if (c.getNom().equals(categorieChoisie) && c instanceof Categorie) {
@@ -63,7 +53,6 @@ public class GraphiqueCave {
             boolean continuerDansCategorie = true;
 
             while (continuerDansCategorie) {
-                // Filtrage des produits uniquement
                 List<ElementCave> produits = categorie.getElements();
                 List<ElementCave> produitsFiltres = produits.stream()
                         .filter(p -> p instanceof ProduitAlcool)
@@ -82,9 +71,7 @@ public class GraphiqueCave {
                         "Choisissez un produit à ajouter au panier :", "Produits",
                         JOptionPane.PLAIN_MESSAGE, null, nomsProduits, nomsProduits[0]);
 
-                if (produitChoisi == null) {
-                    break; // Sortir de la catégorie
-                }
+                if (produitChoisi == null) break;
 
                 boolean produitAjoute = false;
                 for (ElementCave produit : produitsFiltres) {
@@ -105,18 +92,14 @@ public class GraphiqueCave {
                         "Voulez-vous ajouter un autre produit dans cette catégorie ?", "Continuer ?",
                         JOptionPane.YES_NO_OPTION);
 
-                if (reponse != JOptionPane.YES_OPTION) {
-                    continuerDansCategorie = false;
-                }
+                if (reponse != JOptionPane.YES_OPTION) continuerDansCategorie = false;
             }
 
             int reponseCategorie = JOptionPane.showConfirmDialog(null,
                     "Voulez-vous choisir une autre catégorie ?", "Continuer ?",
                     JOptionPane.YES_NO_OPTION);
 
-            if (reponseCategorie != JOptionPane.YES_OPTION) {
-                continuer = false;
-            }
+            if (reponseCategorie != JOptionPane.YES_OPTION) continuer = false;
         }
 
         // Paiement fictif
@@ -128,15 +111,21 @@ public class GraphiqueCave {
             return;
         }
 
-        // Création de la commande
         Client client = new Client(nomClient, numeroCarte);
         Commande commande = new Commande(client, panier);
+
+        // ** Application des stratégies ici **
+        commande.setFraisStrategy(new FraisDePort(500));
+        commande.setTaxesStrategy(new TaxeTauxFixe(0.10));
+        commande.setRemiseStrategy(new RemisePourcentage(0.05));
+                
+
         Facture facture = new Facture(client, panier);
 
-        // Affichage de la facture
         JOptionPane.showMessageDialog(null,
                 "💳 Paiement accepté.\n\n🧾 Facture :\n" + facture.afficherFacture()
-                        + "\n\nMerci pour votre achat !",
+                + "\n\nTotal final (frais, taxes, remises inclus) : " + commande.calculerTotalFinal() + " XPF"
+                + "\n\nMerci pour votre achat !",
                 "Facture", JOptionPane.INFORMATION_MESSAGE);
     }
 }
