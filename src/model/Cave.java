@@ -3,16 +3,28 @@ package model;
 import composite.Categorie;
 import factory.*;
 
+/**
+ * Représente la cave contenant toutes les catégories d'alcools.
+ */
 public class Cave {
+
+    /** Catégorie racine de la cave. */
     private Categorie racine;
 
+    /**
+     * Constructeur qui initialise la cave avec toutes les catégories et produits.
+     */
     public Cave() {
         racine = new Categorie("La Cave de BOUTIN");
         initialiserProduits();
     }
 
+    /**
+     * Initialise les catégories et les produits associés dans la cave.
+     */
     private void initialiserProduits() {
-        // Bières
+        // Création de chaque catégorie avec des produits fabriqués par les factories
+
         Categorie bieres = new Categorie("Bières");
         AlcoolFactory biereFactory = new BiereFactory();
         bieres.ajouterElement(biereFactory.creerProduit("Number One 33 cl", 150));
@@ -28,7 +40,6 @@ public class Cave {
         bieres.ajouterElement(biereFactory.creerProduit("Pack de 12 - Heineken", 2000));
         bieres.ajouterElement(biereFactory.creerProduit("Pack de 24 - Heineken", 4500));
 
-        // Vins
         Categorie vins = new Categorie("Vins");
         AlcoolFactory vinFactory = new VinFactory();
         vins.ajouterElement(vinFactory.creerProduit("Merlot", 1200));
@@ -37,7 +48,6 @@ public class Cave {
         vins.ajouterElement(vinFactory.creerProduit("Rosé de Nouméa", 1350));
         vins.ajouterElement(vinFactory.creerProduit("Pinot Noir Domaine de Prony", 1700));
 
-        // Whiskys
         Categorie whiskys = new Categorie("Whiskys");
         AlcoolFactory whiskyFactory = new WhiskyFactory();
         whiskys.ajouterElement(whiskyFactory.creerProduit("Jack Daniel's", 3500));
@@ -45,7 +55,6 @@ public class Cave {
         whiskys.ajouterElement(whiskyFactory.creerProduit("Black Label", 4500));
         whiskys.ajouterElement(whiskyFactory.creerProduit("Blue Label", 9500));
 
-        // Vodkas
         Categorie vodkas = new Categorie("Vodkas");
         AlcoolFactory vodkaFactory = new VodkaFactory();
         vodkas.ajouterElement(vodkaFactory.creerProduit("Smirnoff", 2800));
@@ -58,6 +67,10 @@ public class Cave {
         racine.ajouterElement(vodkas);
     }
 
+    /**
+     * Retourne la catégorie racine de la cave.
+     * @return racine de la cave
+     */
     public Categorie getCave() {
         return racine;
     }

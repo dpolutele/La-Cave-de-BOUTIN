@@ -12,8 +12,17 @@ import javax.swing.*;
 import model.Cave;
 import model.Panier;
 
+/**
+ * Point d'entrée de l'application graphique.
+ * Permet à l'utilisateur de naviguer dans la cave, ajouter des produits au panier
+ * et générer une facture fictive à la fin de la commande.
+ */
 public class GraphiqueCave {
 
+    /**
+     * Méthode principale qui lance l'application graphique.
+     * @param args non utilisé
+     */
     public static void main(String[] args) {
         Cave cave = new Cave();
         Panier panier = new Panier();
@@ -23,7 +32,7 @@ public class GraphiqueCave {
         boolean continuer = true;
 
         while (continuer) {
-            // 1. Choix de la catégorie
+            // Choix de la catégorie
             List<ElementCave> categories = cave.getCave().getElements();
             String[] nomsCategories = categories.stream()
                                                .map(ElementCave::getNom)
@@ -34,11 +43,10 @@ public class GraphiqueCave {
                     JOptionPane.PLAIN_MESSAGE, null, nomsCategories, nomsCategories[0]);
 
             if (categorieChoisie == null) {
-                // Annuler -> quitter
-                break;
+                break; // Annuler = quitter
             }
 
-            // Trouver la catégorie choisie
+            // Recherche de la catégorie choisie
             Categorie categorie = null;
             for (ElementCave c : categories) {
                 if (c.getNom().equals(categorieChoisie) && c instanceof Categorie) {
@@ -55,6 +63,7 @@ public class GraphiqueCave {
             boolean continuerDansCategorie = true;
 
             while (continuerDansCategorie) {
+                // Filtrage des produits uniquement
                 List<ElementCave> produits = categorie.getElements();
                 List<ElementCave> produitsFiltres = produits.stream()
                         .filter(p -> p instanceof ProduitAlcool)
@@ -74,8 +83,7 @@ public class GraphiqueCave {
                         JOptionPane.PLAIN_MESSAGE, null, nomsProduits, nomsProduits[0]);
 
                 if (produitChoisi == null) {
-                    // Annulation -> sortir de la catégorie
-                    break;
+                    break; // Sortir de la catégorie
                 }
 
                 boolean produitAjoute = false;
@@ -120,10 +128,12 @@ public class GraphiqueCave {
             return;
         }
 
+        // Création de la commande
         Client client = new Client(nomClient, numeroCarte);
         Commande commande = new Commande(client, panier);
         Facture facture = new Facture(client, panier);
 
+        // Affichage de la facture
         JOptionPane.showMessageDialog(null,
                 "💳 Paiement accepté.\n\n🧾 Facture :\n" + facture.afficherFacture()
                         + "\n\nMerci pour votre achat !",
