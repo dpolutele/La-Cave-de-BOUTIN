@@ -16,3 +16,4 @@ public interface AlcoolFactory {
      */
     ProduitAlcool creerProduit(String nom, double prix);
 }
+

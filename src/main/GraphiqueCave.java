@@ -138,9 +138,9 @@ public class GraphiqueCave {
         Commande commande = new Commande(client, panier);
 
         // Configuration des stratégies (frais, taxes, remise)
-        commande.setFraisStrategy(new FraisDePort(500));
-        commande.setTaxesStrategy(new TaxeTauxFixe(0.10));
-        commande.setRemiseStrategy(new RemisePourcentage(0.05));
+        commande.setFraisStrategy(new FraisDePort(100));
+        commande.setTaxesStrategy(new TaxeTauxFixe(0.5));
+        commande.setRemiseStrategy(new RemisePourcentage(0.3));
 
         // Génération de la facture
         Facture facture = new Facture(client, panier);

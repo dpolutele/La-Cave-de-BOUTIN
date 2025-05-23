@@ -40,6 +40,12 @@ src/
 
 
 ---
+## Comment lancer le projet
+
+
+
+
+
 
 ## 👥 Équipe
 
