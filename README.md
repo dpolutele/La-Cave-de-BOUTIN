@@ -24,7 +24,7 @@ Chaque membre du groupe a implémenté un **design pattern** dans le projet :
 
 - 🧩 **Composite** – Organisation hiérarchique des produits  
 - 🧪 **Abstract Factory** – Instanciation des différentes familles d’alcool (**bière, vin, whisky, vodka**)  
-- 🎯 **Strategy** – (en cours d’implémentation)
+- 🎯 **Strategy** – Implementation de frais, taxes et remises 
 
 ---
 
