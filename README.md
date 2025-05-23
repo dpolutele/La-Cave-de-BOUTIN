@@ -42,7 +42,31 @@ src/
 ---
 ## Comment lancer le projet
 
+1. **Assurez vous d'avoir une version Java récente (minimum Java 8 / JDK 1.8) pour vérifier, lancez un terminal et executez la commande**  :
 
+java --version
+
+
+2. **Cloner le projet depuis GitHub si vous n'avez pas le dossier du projet** :
+
+   
+git clone https://github.com/dpolutele/La-Cave-de-BOUTIN
+
+3. **Placez vous dans le dossier du projet** :
+
+cd La-Cave-de-BOUTIN
+
+4. **Compiler les fichiers sources** :
+
+javac -d bin (Get-ChildItem -Recurse -Filter *.java | ForEach-Object { $_.FullName })
+
+5. **Lancer l'application** :
+
+java -jar .\LaCaveDeBOUTIN.jar
+
+
+**ENJOY**
+  
 
 
 
