@@ -7,7 +7,7 @@ UNC
 
 ## 🎯 Objectif
 
-Ce projet simule la gestion d’une **cave à alcool** via une interface **console interactive ou graphique**.  
+Ce projet simule la gestion d’une **cave à alcool** via une interface **console graphique**.  
 L’utilisateur peut :
 - Naviguer dans les catégories de produits (bière, vin, whisky, vodka)
 - Sélectionner des articles (à l’unité ou en pack)
