@@ -32,7 +32,7 @@ public class GraphiqueCave {
                                                .toArray(String[]::new);
 
             String categorieChoisie = (String) JOptionPane.showInputDialog(null,
-                    "Choisissez une catégorie :", "Catégories",
+                    "Choisissez un type d'alcool :", "Catégories",
                     JOptionPane.PLAIN_MESSAGE, null, nomsCategories, nomsCategories[0]);
 
             if (categorieChoisie == null) break;
@@ -96,7 +96,7 @@ public class GraphiqueCave {
             }
 
             int reponseCategorie = JOptionPane.showConfirmDialog(null,
-                    "Voulez-vous choisir une autre catégorie ?", "Continuer ?",
+                    "Voulez-vous choisir un autre type d'alcool?", "Continuer ?",
                     JOptionPane.YES_NO_OPTION);
 
             if (reponseCategorie != JOptionPane.YES_OPTION) continuer = false;
